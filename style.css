@@ -6,20 +6,20 @@
 /* 1. VARIÁVEIS DE DESIGN (Paleta de Cores e Tipografia) */
 :root {
   /* Cores de Fundo e Superfície */
-  --bg-primary: #121214;        /* Preto grafite para o fundo do app */
-  --bg-surface: #1e1e24;        /* Cinzento escuro para caixas e inputs */
-  --bg-frame: #050507;          /* Fundo externo (simulador de telemóvel) */
+  --bg-primary: #ffffff;        /* Preto grafite para o fundo do app */
+  --bg-surface: #f4f4f5;        /* Cinzento escuro para caixas e inputs */
+  --bg-frame: #e4e4e7;          /* Fundo externo (simulador de telemóvel) */
 
   /* Cores de Ação e Destaque */
   --accent-red: #e50914;        /* Vermelho vibrante (Botões e Marca) */
-  --accent-red-hover: #b80710;  /* Vermelho escuro para efeito hover */
-  --accent-gold: #f5c518;       /* Amarelo/Dourado (Destaques/IMDb) */
+  --accent-red-hover: #e50914;  /* Vermelho escuro para efeito hover */
+  --accent-gold: #b80710;       /* Amarelo/Dourado (Destaques/IMDb) */
 
   /* Cores de Texto e Leitura (Acessibilidade - WCAG) */
-  --text-primary: #ffffff;      /* Texto principal em branco de alto contraste */
-  --text-secondary: #a1a1aa;    /* Cinzento claro para legendas e textos secundários */
-  --border-color: #2e2e38;      /* Borda suave para caixas de texto */
-  --error-color: #ff5555;       /* Vermelho de alerta para validação de erros */
+  --text-primary: #09090b;      /* Texto principal em branco de alto contraste */
+  --text-secondary: #71717a;    /* Cinzento claro para legendas e textos secundários */
+  --border-color: #09090b;     /* Borda suave para caixas de texto */
+  --error-color: #dc2626;       /* Vermelho de alerta para validação de erros */
 
   /* Tipografia */
   --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -232,4 +232,25 @@ body {
   font-size: 0.82rem;
   text-decoration: underline;
   cursor: pointer;
+}
+/* ==========================================================================
+   9. ANIMAÇÃO PIXEL ART (Detalhe do Homem-Aranha)
+   ========================================================================== */
+.pixel-spiderman-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 8px 0;
+}
+
+.spiderman-pixel {
+  max-width: 64px;            /* Tamanho ideal para ecrãs móveis */
+  height: auto;
+  image-rendering: pixelated; /* Propriedade essencial: evita que a imagem em pixel fique desfocada */
+  transition: transform 0.3s ease;
+}
+
+/* Efeito interativo ao passar o cursor ou tocar */
+.spiderman-pixel:hover {
+  transform: scale(1.15) translateY(-3px);
 }
