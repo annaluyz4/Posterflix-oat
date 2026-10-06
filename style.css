@@ -1,0 +1,235 @@
+/* ==========================================================================
+   POSTERFLIX - GUIA DE ESTILOS E DESIGN (OAT 1)
+   Tema: Cinema Clássico / Dark Mode (Alto Contraste)
+   ========================================================================== */
+
+/* 1. VARIÁVEIS DE DESIGN (Paleta de Cores e Tipografia) */
+:root {
+  /* Cores de Fundo e Superfície */
+  --bg-primary: #121214;        /* Preto grafite para o fundo do app */
+  --bg-surface: #1e1e24;        /* Cinzento escuro para caixas e inputs */
+  --bg-frame: #050507;          /* Fundo externo (simulador de telemóvel) */
+
+  /* Cores de Ação e Destaque */
+  --accent-red: #e50914;        /* Vermelho vibrante (Botões e Marca) */
+  --accent-red-hover: #b80710;  /* Vermelho escuro para efeito hover */
+  --accent-gold: #f5c518;       /* Amarelo/Dourado (Destaques/IMDb) */
+
+  /* Cores de Texto e Leitura (Acessibilidade - WCAG) */
+  --text-primary: #ffffff;      /* Texto principal em branco de alto contraste */
+  --text-secondary: #a1a1aa;    /* Cinzento claro para legendas e textos secundários */
+  --border-color: #2e2e38;      /* Borda suave para caixas de texto */
+  --error-color: #ff5555;       /* Vermelho de alerta para validação de erros */
+
+  /* Tipografia */
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* 2. RESET GLOBAL E CONFIGURAÇÕES BÁSICAS */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-family);
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  background-color: var(--bg-frame);
+  color: var(--text-primary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 10px;
+}
+
+/* 3. SIMULADOR MÓVEL (Moldura de Telemóvel) */
+.mobile-frame {
+  width: 100%;
+  max-width: 414px;            /* Largura padrão de telemóvel grande */
+  height: 844px;               /* Proporção de ecrã móvel */
+  background-color: var(--bg-primary);
+  border-radius: 36px;
+  border: 4px solid #2a2a32;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.9);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 4. ESTRUTURA DA TELA DE LOGIN */
+.screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  padding: 40px 28px;
+}
+
+/* 5. CABEÇALHO (Marca e Logo) */
+.login-header {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.logo {
+  font-size: 2.4rem;
+  font-weight: 800;
+  letter-spacing: -1px;
+  color: var(--text-primary);
+}
+
+/* Destaque vermelho no sufixo "flix" */
+.logo span {
+  color: var(--accent-red);
+}
+
+.subtitle {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  margin-top: 6px;
+}
+
+/* 6. FORMULÁRIO E INPUTS (Lei da Proximidade da Gestalt) */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  width: 100%;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.input-group label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-wrapper input {
+  width: 100%;
+  padding: 14px 16px;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  color: var(--text-primary);
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+/* Efeito de Foco Ergonómico */
+.input-wrapper input:focus {
+  border-color: var(--accent-red);
+  box-shadow: 0 0 0 3px rgba(229, 9, 20, 0.2);
+}
+
+/* Botão de Mostrar/Ocultar Senha (Tríade de Peirce) */
+.password-wrapper input {
+  padding-right: 48px;
+}
+
+.btn-toggle-eye {
+  position: absolute;
+  right: 12px;
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 4px;
+}
+
+/* Estilo para Mensagens de Erro */
+.error-message {
+  font-size: 0.78rem;
+  color: var(--error-color);
+  min-height: 16px;
+}
+
+/* 7. OPÇÕES E BOTÕES DE AÇÃO */
+.login-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+}
+
+.remember-me {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.remember-me input {
+  accent-color: var(--accent-red);
+}
+
+.forgot-password {
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.forgot-password:hover {
+  color: var(--text-primary);
+}
+
+/* Botão Principal (Acessibilidade na Thumb Zone) */
+.btn-primary {
+  width: 100%;
+  padding: 16px;
+  background-color: var(--accent-red);
+  color: var(--text-primary);
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.btn-primary:active {
+  transform: scale(0.98);
+  background-color: var(--accent-red-hover);
+}
+
+/* 8. RODAPÉ DA TELA DE LOGIN */
+.login-footer {
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.login-footer a {
+  color: var(--accent-gold);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.btn-secondary-link {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 0.82rem;
+  text-decoration: underline;
+  cursor: pointer;
+}
