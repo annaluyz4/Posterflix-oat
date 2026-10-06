@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <!-- Otimização para visualização correta em ecrãs móveis (Responsividade) -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Posterflix - Login</title>
+
+  <!-- Ligação com o ficheiro de estilos CSS -->
+  <link rel="stylesheet" href="oat.css">
+</head>
+<body>
+
+  <!-- SIMULADOR DE MOLDURA MOBILE (Para manter a proporção de telemóvel no ecrã do PC) -->
+  <main class="mobile-frame">
+    
+    <!-- TELA 1: LOGIN E AUTENTICAÇÃO (Obrigatória - Sequência A) -->
+    <section id="screen-login" class="screen active">
+      
+      <!-- CABEÇALHO: Marca e Identidade Visual (Contexto da Aplicação) -->
+      <header class="login-header">
+        <h1 class="logo">Poster<span>flix</span></h1>
+        <p class="subtitle">A arte do cinema na palma da sua mão</p>
+      </header>
+
+      <!-- FORMULÁRIO DE AUTENTICAÇÃO -->
+      <form id="login-form" class="login-form" novalidate>
+        
+        <!-- CAMPO 1: E-mail -->
+        <!-- Uso de <label> explicito para Acessibilidade e Leis de Agrupamento/Gestalt -->
+        <div class="input-group">
+          <label for="email">E-mail</label>
+          <div class="input-wrapper">
+            <input 
+              type="email" 
+              id="email" 
+              name="email" 
+              placeholder="seu@email.com" 
+              autocomplete="email"
+              required
+            >
+          </div>
+          <!-- Feedback de erro (Prevenção e Gestão de Erros - ISO 9241) -->
+          <span class="error-message" id="email-error"></span>
+        </div>
+
+        <!-- CAMPO 2: Palavra-passe / Senha -->
+        <div class="input-group">
+          <label for="password">Senha</label>
+          <div class="input-wrapper password-wrapper">
+            <input 
+              type="password" 
+              id="password" 
+              name="password" 
+              placeholder="••••••••" 
+              required
+            >
+            <!-- Botão de Mostrar/Ocultar Senha (Tríade de Peirce: Signo/Ícone de Acessibilidade) -->
+            <button type="button" id="toggle-password-btn" class="btn-toggle-eye" aria-label="Mostrar ou ocultar senha">
+              👁️
+            </button>
+          </div>
+          <!-- Feedback de erro em tempo real -->
+          <span class="error-message" id="password-error"></span>
+        </div>
+
+        <!-- OPÇÕES ADICIONAIS: Redução da Carga Cognitiva e Esforço de Memória -->
+        <div class="login-options">
+          <label class="remember-me">
+            <input type="checkbox" id="remember">
+            <span>Lembrar-me</span>
+          </label>
+          <a href="#" class="forgot-password">Esqueceu a senha?</a>
+        </div>
+
+        <!-- BOTÃO PRINCIPAL DE AÇÃO (Posicionado na Thumb Zone para alcance fácil do polegar) -->
+        <button type="submit" class="btn-primary">Entrar</button>
+
+      </form>
+
+      <!-- RODA PÉ DA TELA DE LOGIN: Rotas Alternativas -->
+      <footer class="login-footer">
+        <p>Ainda não tem conta? <a href="#">Cadastre-se</a></p>
+        <button type="button" id="guest-btn" class="btn-secondary-link">Explorar como convidado</button>
+      </footer>
+
+    </section>
+
+  </main>
+
+  <!-- Ligação com o ficheiro de rotas e scripts JavaScript -->
+  <script src="oat.js"></script>
+</body>
+</html>
